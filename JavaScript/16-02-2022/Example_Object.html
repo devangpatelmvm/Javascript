@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body style="background-color: cadetblue;">
+
+<h2 style="font-style: oblique;">Example Of Objects</h2>
+<p id="demo" ></p>
+
+<script>
+let person = {
+  firstName: "Devang",
+  lastName : "Patel",
+  id     :  5566,
+  location : "Madhya Pradesh"
+};
+
+document.getElementById("demo").innerHTML =
+ person.firstName + " " + person.lastName + "<br>" + "Location - " + person["location"];
+</script>
+</body>
+</html>

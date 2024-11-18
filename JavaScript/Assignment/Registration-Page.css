@@ -1,0 +1,56 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+.row{
+    background: white;
+    border-radius: 30px;
+    box-shadow: 12px 12px 32px;
+}
+
+
+.register img{
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+/* .btn1{
+    height: 40px;
+    width: 130px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-weight: 600;
+    background: rgb(5, 38, 99);
+    color: rgb(255, 255, 255);
+} */
+/* .btn1:hover{
+    background: brown;
+    transition: 0.5s;
+} */
+
+.error{
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.danger{
+    background-color: #d72c2c26;
+    color: #720f0f;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 8px;
+    border-radius: 6px;
+}
+
+.success{
+    background-color: #3cb36526;
+    color: #0e7a31;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 8px;
+    border-radius: 6px;
+}
+
+

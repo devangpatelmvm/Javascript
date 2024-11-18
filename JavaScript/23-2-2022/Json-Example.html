@@ -1,0 +1,25 @@
+<html>
+<body>
+
+<h2>JSON Used For Convert String into Object </h2>
+
+<p id="demo1"></p>
+<p id="demo2"></p>
+
+<script>
+let Emp = '{"employees":[' +
+'{"Name":"Dev","Age":"23" },' +
+'{"Name":"Ram","Age":"1000" },' +
+'{"Name":"Sita","Age":"999" }]}';
+
+const obj = JSON.parse(Emp);
+document.getElementById("demo1").innerHTML =
+obj.employees[1].Name + "  :  " + obj.employees[1].Age;
+
+document.getElementById("demo2").innerHTML =
+obj.employees[2].Name + "  :  " + obj.employees[2].Age;
+
+</script>
+
+</body>
+</html>

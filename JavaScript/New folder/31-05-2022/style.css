@@ -1,0 +1,40 @@
+body {
+  font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+  margin: 2em;
+}
+
+.container {
+  display: grid;
+  gap: 10px;
+}
+
+.box {
+  border: 3px solid #666;
+  border-radius: 0.5em;
+  padding: 10px;
+  cursor: move;
+}
+
+.box.over,
+.box1.over,
+.box2.over,
+.box3.over {
+  border: 3px dotted #666;
+}
+
+[draggable] {
+  user-select: none;
+}
+
+button {
+  border: none;
+  padding: 8px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+.btn {
+  margin-left: 1050px;
+}

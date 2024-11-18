@@ -1,0 +1,90 @@
+   body{
+     background-color: rgb(103, 143, 143);
+   }
+   
+   /* Nav Bar  */
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+      }
+      
+      li {
+        float: right;
+      }
+      
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      
+      li a:hover {
+        background-color: #111;
+      }
+         
+            /* Img  reflect */
+      #img1{
+        -webkit-box-reflect: right 850px;
+      }
+      
+      div{
+          transition: width 2s;
+      }
+      #div1 
+      {transition-timing-function: linear;}
+
+
+         /* ----Image---- */
+      img {
+        position: absolute;
+        left: 5px;
+        top: 100px;
+        z-index: -1;
+      }
+
+
+      /* -----Registration Page----- */
+
+     form{  
+      background: rgb(238,174,202);
+      background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(234,175,204,1) 5%, rgba(148,187,233,1) 100%);
+       text-align: center;
+       border-style: outset;
+       border-width: 9px;
+       margin-top: 50px;
+       margin-left: 300px;
+       margin-right: 300px;
+       
+     }
+       /* ---Button--- */
+       button{
+      font-size: 15px;
+      height: 50px;
+      width: 80px;
+        }
+
+     .btn{
+      transition-duration: 0.4s;
+    }
+     .btn:hover {
+      background: rgb(138, 250, 237); 
+      color: #000000;
+    }
+    .btn:hover {
+      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    
+     /* ---Footer--- */
+     footer {
+      text-align: center;
+      padding: 3px;
+      background-color: #333;
+      color: white;
+    }
+
+

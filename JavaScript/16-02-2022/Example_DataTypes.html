@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+</head>
+<body  style="background-color:rgb(78, 152, 185);">
+
+    <button type="button" onclick="document.getElementById('demo1').innerHTML = str">String Type</button>
+    <button type="button" onclick="document.getElementById('demo1').innerHTML = x">Number Type</button>
+    <button type="button" onclick="document.getElementById('demo1').innerHTML = obj1.firstName + ' ' +obj1.lastName">Objext Type</button>
+    <button type="button" onclick="document.getElementById('demo1').innerHTML = x + y">Add Of No.</button>
+    <button type="button" onclick="document.getElementById('demo1').innerHTML = str + y">add Str & No. </button>
+
+    <p id="demo1" style="background-color:rgb(102, 102, 110)"> </p>
+    
+   <script>
+    var str = 'This is Data Type Program';
+    var x = 10;
+    var y = 20;
+    var obj1 = {firstName:"Devang", lastName:"Patel"};
+   </script>
+</body>
+</html>

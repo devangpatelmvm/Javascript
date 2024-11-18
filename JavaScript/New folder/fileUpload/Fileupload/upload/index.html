@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button type="submit" onclick="submitObject()">Submit</button>
+    <button type="button" onclick="download()">Download</button>
+    <script>
+
+      function download() {
+        fetch("http://localhost:3000/dowload")
+          .then((resp) => resp.blob())
+          .then((blob) => {
+            const url = window.URL.createObjectURL(blob);
+            const download = document.createElement("a");
+            download.style.display = "none";
+            download.href = url;
+            download.download = "mynewfile1.txt";
+            document.body.appendChild(download);
+            download.click();
+            window.URL.revokeObjectURL(url);
+            alert("your file has downloaded!");
+          })
+          .catch(() => alert("oh no!"));
+      }
+      function submitObject() {
+        let configObj = {
+          name: "User",
+          email: "test@user.com",
+        };
+        const http = new XMLHttpRequest();
+        const url = "http://localhost:3000/endpoint";
+        http.open("POST", url);
+        http.setRequestHeader("Content-type", "application/json");
+        http.onreadystatechange = function () {
+          if (http.readyState == 4 && http.status == 200) {
+            alert(http.responseText);
+          }
+        };
+        http.send(JSON.stringify(configObj));
+      }
+    </script>
+  </body>
+</html>

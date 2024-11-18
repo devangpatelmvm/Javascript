@@ -1,0 +1,146 @@
+
+    <mat-toolbar color="primary">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>My App</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>share</mat-icon>
+      </button>
+    </mat-toolbar>
+  
+
+    <!-- stepper 1 -->
+      
+      <mat-stepper linear #stepper >
+        <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
+          <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Fill out project details</ng-template>
+            <mat-form-field appearance="fill">
+              <mat-label>Project Name</mat-label>
+              <input matInput formControlName="firstCtrl1" class="form-control" [(ngModel)]="projectName" placeholder="Enter Your Name" required>
+            </mat-form-field><br>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Select UI Framework</mat-label>
+              <mat-select formControlName="firstCtrl2" class="form-control" [(ngModel)]="uiFramework" placeholder="Select Framework" required >
+                <mat-option (click)="matSelectSetp1(i)" 
+                *ngFor="let item of stepperData.dropdown; let i = index"
+                [value]="i">{{ item.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+         
+            <div>
+              <button mat-button matStepperNext >Next</button>
+            </div>
+          </form>
+        </mat-step>
+        
+        <!-- Stepper 2 -->
+        <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+          <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel></ng-template>
+            <mat-form-field appearance="fill">
+              <mat-label>Select UI Component</mat-label>
+
+               <mat-select matInput formControlName="secondCtrl" class="form-control" placeholder="Enter Your Name" required
+               *ngIf="stepOne == 0 ? true : false" >
+                   <mat-option (click)="matSelectSetp2(item, i)" *ngFor="let item of stepperData.htmlSection[0]; let i = index"
+                      [value]="item.section">{{ item.name }}
+                   </mat-option>
+                </mat-select>
+
+                <mat-select matInput formControlName="secondCtrl" class="form-control" placeholder="Enter Your Name" required
+               *ngIf="stepOne == 1 ? true : false" >
+                   <mat-option (click)="matSelectSetp2(item, i)" *ngFor="let item of stepperData.htmlSection[1]; let i = index"
+                      [value]="item.section">{{ item.name }}
+                   </mat-option>
+                </mat-select>
+
+               <mat-select matInput formControlName="secondCtrl" class="form-control" placeholder="Enter Your Name" required
+               *ngIf="stepOne == 2 ? true : false" >
+                   <mat-option (click)="matSelectSetp2(item, i)" *ngFor="let item of stepperData.htmlSection[2]; let i = index"
+                      [value]="item.section">{{ item.name }}
+                   </mat-option>
+                </mat-select>
+
+            </mat-form-field>
+
+             <div class="form-group" >
+              <div class="form-control" >
+              <label>
+                 <!-- <div>{{ selectedData.section }}</div> -->
+                 
+              <div  *ngIf="selectedIndex == 0">
+                <!-- <div [innerHTML]="selectedData.section | htmlpipe "></div> -->
+                  <mat-form-field class="example-full-width" appearance="fill"  required>
+                    <mat-label>Enter Something</mat-label>
+                    <input matInput >
+                  </mat-form-field>
+              </div>
+              <div *ngIf="selectedIndex == 1">
+                <!-- <div [innerHTML]="selectedData.section | htmlpipe "></div> -->
+                <textarea placeholder="Textarea"></textarea>
+              </div>
+              <div *ngIf="selectedIndex == 2">
+                <!-- <button mat-raised-button color="primary" >Button</button> -->
+                <mat-radio-group aria-label="Select an option">
+                  <mat-radio-button value="1">True</mat-radio-button>&nbsp;
+                  <mat-radio-button value="2">False</mat-radio-button>
+                </mat-radio-group>
+                <!-- <div [innerHTML]="selectedData.section | htmlpipe "></div> -->
+              </div>
+            </label>
+            </div>
+        </div>
+
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+
+
+        <!-- Stepper 3 -->
+        <mat-step>
+          <form>
+          <ng-template matStepLabel>Done</ng-template>
+          <p>Preview</p><br>
+          <div>Project Name : {{ projectName }}</div><br>
+          <!-- <div>Selected Framework : {{ uiFramework }}</div><br> -->
+          <!-- <div>Selected Component : {{ uiFramework }}</div><br> -->
+          <!-- <div>Component value : {{ inputValue }}</div><br> -->
+          <!-- <div>  {{ selectedData.name }} </div> --> 
+
+                <div *ngIf="selectedIndex == 0"> Input Feild :
+                  &nbsp;<mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>Enter Something</mat-label>
+                      <input matInput>
+                       </mat-form-field>
+                </div>
+                <div *ngIf="selectedIndex == 1"> Textarea :
+                  &nbsp; <textarea placeholder="Textarea"></textarea>
+                </div>
+                <div *ngIf="selectedIndex == 2">
+                  <mat-radio-group aria-label="Select an option">
+                    <mat-radio-button value="1">True</mat-radio-button>&nbsp;
+                    <mat-radio-button value="2">False</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+            
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+          </div>
+        </form>
+        </mat-step>
+      </mat-stepper>  
+
+

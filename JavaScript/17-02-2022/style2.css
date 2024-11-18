@@ -1,0 +1,24 @@
+h1{
+   text-align: center;
+}
+* {
+   font-family: myFirstFont;
+   src: url(sansation_light.woff);
+}
+body{
+    background: rgb(238,174,202);
+background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+div {
+    margin-left: 400px;
+    margin-top: 70px;
+    width: 100px;
+    height: 100px;
+    background: rgb(91, 156, 158);
+    transition: width 2s, height 4s;
+  }
+  
+  div:hover {
+    width: 500px;
+    height: 400px;
+  }

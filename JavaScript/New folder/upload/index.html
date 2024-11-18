@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button type="submit" onclick="submitObject()">Submit</button>
+    <button type="button" onclick="download()">Download</button>
+    <script>
+      function submitObject() {
+        let headersList = {
+          "Content-Type": "application/json",
+        };
+
+        let configObj = JSON.stringify({
+          name: "test user2",
+          email: "test@user2.com",
+        });
+
+        fetch("http://localhost:3001/objectUpload", {
+          method: "POST",
+          body: configObj,
+          headers: headersList,
+        })
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            alert(data);
+          });
+      }
+
+      function download() {
+        fetch("http://localhost:3001/dowload").then((resp) => resp.blob())
+          .then((blob) => {
+            const url = window.URL.createObjectURL(blob);
+            const download = document.createElement("a");
+            download.href = url;
+            download.download = "file.zip";
+            document.body.appendChild(download);
+            download.click();
+            window.URL.revokeObjectURL(url);
+            alert("your file has downloaded!");
+          })
+          .catch(() => alert("oh no!"));
+      }
+    </script>
+  </body>
+</html>
